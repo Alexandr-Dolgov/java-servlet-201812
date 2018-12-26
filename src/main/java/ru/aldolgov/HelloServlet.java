@@ -29,6 +29,10 @@ public class HelloServlet extends HttpServlet {
         model.put("name", "alexandr");
         model.put("now", String.valueOf(new Date()));
 
+        model.put("catalinaBaseProperty", String.valueOf(System.getProperty("catalina.base")));
+        model.put("propertyHomeProperty", String.valueOf(System.getProperty("PROPERTY_HOME")));
+        model.put("catalinaHomeEnv", String.valueOf(System.getenv("CATALINA_HOME")));
+
         Template template = cfg.getTemplate("hello.ftl");
         try {
             template.process(model, response.getWriter());
